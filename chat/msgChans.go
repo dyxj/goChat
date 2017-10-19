@@ -6,8 +6,8 @@ import (
 )
 
 type MsgData struct {
-	Msg  string `json:msg`
-	User string `json:user`
+	Msg  string `json:"msg"`
+	User string `json:"user"`
 }
 
 type MsgChans struct {
