@@ -7,7 +7,8 @@ Users can connect to any room.
 Built with websocket connections.  
 
 ### How to run
-go run mutexChat.go
+1. go run mutexChat.go
+2. Open web browser and go to http://localhost:1234/
 
 ### UI
 ![Alt text](/goChat.png)
