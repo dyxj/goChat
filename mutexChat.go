@@ -82,11 +82,13 @@ func broadcastMessage(roomName string) {
 		roomClients := rooms.Get(roomName)
 		// Send to connected clients
 		for client := range roomClients {
-			if err := websocket.JSON.Send(client, &msg); err != nil {
-				log.Printf("Cant Send error: %v\n", err)
-				client.Close()
-				rooms.Delete(roomName, client)
-			}
+			go func(client *websocket.Conn){
+				if err := websocket.JSON.Send(client, &msg); err != nil {
+					log.Printf("Cant Send error: %v\n", err)
+					client.Close()
+					rooms.Delete(roomName, client)
+				}
+			}(client)
 		} // loop over clients in room
 
 	} // end while
