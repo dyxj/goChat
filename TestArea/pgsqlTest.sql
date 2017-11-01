@@ -23,7 +23,7 @@ VALUES
 RETURNING uid;
 
 DELETE FROM  users
-WHERE uid='b9cdd4cc-515d-4989-935c-cc4a754a952e';
+WHERE uid='ed1bc9da-65e7-4e63-9ce0-e23863e24950';
 
 SELECT uid, userid, password, first_name, last_name, email, created_date, last_updated, last_signin, active
 FROM users
@@ -37,6 +37,8 @@ UPDATE public.users
 SET userid='', password='', first_name='', last_name='', email='', 
 created_date='now'::text::date, last_updated=now(), last_signin='', active=true
 WHERE uid=uuid_generate_v4();
+
+
 
 
 

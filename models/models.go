@@ -12,8 +12,6 @@ func NewDatabase() (*sql.DB, error) {
 	dbpass := os.Getenv("TEST_PGSQL_PASS")
 	dbname := "gochat"
 	dbssl := "disable"
-	fmt.Println(dbuser)
-	fmt.Println(dbpass)
 	// Connect to database
 	connStr := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=%s",
 		dbuser, dbpass, dbname, dbssl)
